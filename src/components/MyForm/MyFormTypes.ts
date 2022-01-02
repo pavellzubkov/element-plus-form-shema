@@ -19,7 +19,7 @@ export type IValidatorType =
   | "hex"
   | "email"
   | "any";
-export type IFormSyncValidator<T> = (formVal: Ref<T>) => IFormNativeValidator;
+export type IFormSyncValidator = (formVal: Ref<any>) => IFormNativeValidator;
 export type IFormAsyncValidator<T> = (
   formVal: Ref<T>
 ) => IFormNativeAsyncValidator;
@@ -66,7 +66,7 @@ export interface MyFormShema<T extends IBaseDoc> {
 export type IFormNativeValidator = (
   rule: never,
   value: never,
-  callback: (err?: never) => string | undefined
+  callback: (err?: any) => string | undefined
 ) => void;
 export type IFormNativeAsyncValidator = (
   rule: never,
@@ -93,7 +93,7 @@ export interface IFormNativeRule extends IBaseRule {
 }
 
 interface IFormItemRule<T> extends IBaseRule {
-  validator?: IFormSyncValidator<T>;
+  validator?: IFormSyncValidator;
   asyncValidator?: IFormAsyncValidator<T>;
 }
 

@@ -7,6 +7,7 @@ import {
   ShemaDocInfo,
   ShemaFunc,
 } from "@/components/MyForm/MyFormTypes";
+import { MyFormValidators } from "@/components/MyForm/MyFormValidators";
 
 export class DocOneShemaClass extends BaseFormShema<IDocOne> {
   docInfo: ShemaDocInfo<IDocOne> = {
@@ -76,10 +77,18 @@ export class DocOneShemaClass extends BaseFormShema<IDocOne> {
             label: "My Tags",
           },
           rules: [
-            // {
-            //   max: 6,
-            //   message: "Max6",
-            // },
+            {
+              required: true,
+              message: "Required",
+            },
+            {
+              validator: MyFormValidators.lengthRange(
+                "range",
+                "From 2 to 6",
+                2,
+                6
+              ),
+            },
           ],
         },
       },

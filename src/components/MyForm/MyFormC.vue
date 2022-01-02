@@ -136,11 +136,11 @@ export default defineComponent({
       () => formVal.value,
       async () => {
         console.log("MyForm value changed");
-        // try {
-        //   await form.value.validate();
-        // } catch (e) {
-        //   console.log("checkForm check fail", e);
-        // }
+        try {
+          await form.value.validate();
+        } catch (e) {
+          console.log("checkForm check fail", e);
+        }
       },
       {
         deep: true,
