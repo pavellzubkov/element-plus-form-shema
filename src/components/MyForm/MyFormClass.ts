@@ -19,7 +19,7 @@ export class MyFormClass {
     Object.keys(shema.properties).forEach((fieldName) => {
       const elt: IFieldsArrItem = {
         name: fieldName,
-        component: shema.properties[fieldName].ui.widget,
+        component: MyFormComps[shema.properties[fieldName].ui.widget],
         label: shema.properties[fieldName].ui.label || "",
         hidden: shema.properties[fieldName].ui.hidden || defVis,
         componentConfig: shema.properties[fieldName].ui.widgetConfig,

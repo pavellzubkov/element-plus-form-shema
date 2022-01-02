@@ -16,7 +16,7 @@ export class DocOneShemaClass extends BaseFormShema<IDocOne> {
     name: "Модель",
   };
   private NumberRegexp = /^[0-9]+[,|.]?\d*$/;
-  getNcShema: ShemaFunc<IDocOne> = (
+  getFormShema: ShemaFunc<IDocOne> = (
     reading: ReadingShemaParam | HiddenCheckFunc,
     defaults = { payload: {} }
   ): MyFormShema<IDocOne> => {

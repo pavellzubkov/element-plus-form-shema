@@ -105,7 +105,7 @@ export type IFormValidatorF = (
 ) => IFormNativeValidator;
 
 export interface IFieldsArrItem {
-  component: string;
+  component: any;
   label: string;
   name: string;
   hidden: IFormVisF;

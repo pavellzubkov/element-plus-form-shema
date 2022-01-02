@@ -8,7 +8,7 @@
       :label-position="'top'"
       style="width: 100%"
       label-width="120px"
-      size="mini"
+      size="small"
     >
       <template v-for="value in comps" :key="value.name">
         <transition
@@ -49,9 +49,9 @@
               effect="light"
               :open-delay="700"
               :disabled="confvisible"
-              content="Подтвердить"
+              content="Confirm"
             >
-              <el-button type="success" circle size="mini" @click="checkForm"
+              <el-button type="success" circle size="small" @click="checkForm"
                 >Confirm</el-button
               >
             </el-tooltip>
@@ -66,8 +66,8 @@
             <span>Are you shure?</span>
           </el-row>
           <el-row justify="space-between">
-            <el-button size="mini" @click="confvisible = false">No</el-button>
-            <el-button size="mini" type="warning" @click="formIsOk"
+            <el-button size="small" @click="confvisible = false">No</el-button>
+            <el-button size="small" type="warning" @click="formIsOk"
               >Yes</el-button
             >
           </el-row>
