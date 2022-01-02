@@ -8,6 +8,10 @@
         @checked="formIsOk"
       ></MyFormC>
     </div>
+    <span v-if="docDoc.payload.text1">
+      {{ JSON.stringify(docDoc.payload.text1) }}
+    </span>
+
     <div class="form-block">
       {{ docDoc.payload }}
     </div>
