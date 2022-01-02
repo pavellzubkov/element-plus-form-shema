@@ -102,7 +102,6 @@ export default defineComponent({
 
 <style scoped>
 .tags-container {
-  position: relative;
   display: inline-block;
 }
 </style>

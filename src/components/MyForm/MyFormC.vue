@@ -23,11 +23,14 @@
             v-if="!value.hidden(formVal)"
           >
             <template #label> {{ value.label }} </template>
-            <component
-              :is="value.component"
-              v-bind="value.componentConfig"
-              v-model="formVal[value.name]"
-            ></component>
+            <div style="width: 100%">
+              <component
+                :is="value.component"
+                v-bind="value.componentConfig"
+                v-model="formVal[value.name]"
+              ></component>
+            </div>
+
             <template #error="err">
               <span style="color: red">{{ err.error }}</span>
             </template>

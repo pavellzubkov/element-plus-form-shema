@@ -1,10 +1,14 @@
 <template>
-  <MyFormC
-    :shema="shemaObj"
-    v-model="docDoc.payload"
-    editable="create"
-    @checked="formIsOk"
-  ></MyFormC>
+  <div style="width: 100%; alignment: center">
+    <div class="bordered-item">
+      <MyFormC
+        :shema="shemaObj"
+        v-model="docDoc.payload"
+        editable="create"
+        @checked="formIsOk"
+      ></MyFormC>
+    </div>
+  </div>
 </template>
 
 <script lang="ts">
@@ -50,4 +54,16 @@ export default defineComponent({
 });
 </script>
 
-<style scoped></style>
+<style scoped>
+.bordered-item {
+  width: 80%;
+  height: 80vh;
+  padding: 7px;
+  overflow: paged-y-controls;
+  text-align: left;
+  margin: auto;
+  border: 2px ridge #b3b3b3;
+  box-shadow: 0 0 4px rgba(35, 35, 35, 0.5); /* Параметры тени */
+  border-radius: 5px;
+}
+</style>
