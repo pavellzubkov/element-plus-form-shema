@@ -84,7 +84,7 @@ interface IBaseRule {
   max?: number;
   enum?: any[];
   whitespace?: boolean;
-  transform?: IFormTransformFunc<string | number | Array | never>;
+  transform?: IFormTransformFunc<any>;
 }
 
 export interface IFormNativeRule extends IBaseRule {

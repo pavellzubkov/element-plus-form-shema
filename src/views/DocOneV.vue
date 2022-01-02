@@ -4,7 +4,7 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import { DocOneShema } from "@/components/DocsShemas/docOneShema";
+import { DocOneShemaClass } from "@/components/DocsShemas/docOneShemaClass";
 import CreateDocC from "@/components/CreateDocC.vue";
 
 export default defineComponent({
@@ -12,7 +12,7 @@ export default defineComponent({
   components: { CreateDocC },
   setup() {
     return {
-      DocOneShema,
+      DocOneShema: DocOneShemaClass,
     };
   },
 });

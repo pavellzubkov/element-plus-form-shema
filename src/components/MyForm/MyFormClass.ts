@@ -5,6 +5,7 @@ import {
   IFieldsArrItem,
   IFormNativeRule,
   IFormRules,
+  IFormTransformFunc,
   MyFormShema,
 } from "@/components/MyForm/MyFormTypes";
 
@@ -54,7 +55,7 @@ export class MyFormClass {
             r.asyncValidator = rule.asyncValidator(formVal);
           }
           if (rule.type === "string") {
-            r.transform = (value: string) => value.trim();
+            r.transform = this.trimValue;
           }
           rules.push(r);
         });
@@ -63,4 +64,7 @@ export class MyFormClass {
     });
     return outRules;
   };
+
+  private trimValue: IFormTransformFunc<string> = (value: string) =>
+    value.trim();
 }

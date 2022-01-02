@@ -8,7 +8,7 @@ import {
   ShemaFunc,
 } from "@/components/MyForm/MyFormTypes";
 
-export class DocOneShema extends BaseFormShema<IDocOne> {
+export class DocOneShemaClass extends BaseFormShema<IDocOne> {
   docInfo: ShemaDocInfo<IDocOne> = {
     db_name: "myBase",
     nanoLength: 6,
