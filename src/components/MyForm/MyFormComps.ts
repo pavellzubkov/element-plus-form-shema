@@ -1,16 +1,11 @@
-import MyThemeSelectC from "@/components/Company/CommonDocs/Themes/Components/MyThemeSelectC.vue";
-import DragListPhotoUploadC from "@/components/UICommon/MyForm/Components/SortableUpload/DragListPhotoUploadC.vue";
 import { ElInput } from "element-plus";
-import { Component, defineAsyncComponent } from "vue";
+import { defineAsyncComponent } from "vue";
+import MyCustomFieldOne from "@/components/MyForm/CustomFields/MyCustomFieldOne.vue";
 
-export const MyFormComps: { [key: string]: Component } = {
+export const MyFormComps = {
   input: ElInput,
-  themeSelect: MyThemeSelectC,
-  dragedPhotoUpload: DragListPhotoUploadC,
-  modelsSelect: defineAsyncComponent(
-    () =>
-      import(
-        "@/components/Equipment/Models/Components/SelectComp/EqModelsSelectC.vue"
-      )
+  customOne: MyCustomFieldOne,
+  customTwo: defineAsyncComponent(
+    () => import("@/components/MyForm/CustomFields/MyCustomFieldTwo.vue")
   ),
 };

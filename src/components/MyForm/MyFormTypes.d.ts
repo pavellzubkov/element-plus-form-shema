@@ -34,11 +34,11 @@ export type ShemaFieldUiFunc = (
   other?: never
 ) => FieldUi;
 
-export type HiddenCheckFunc = (form?: Record<string, never>) => boolean;
+export type HiddenCheckFunc = (form?: Record<string, any>) => boolean;
 
 export type CheckFunc = (doc?: IBaseDoc) => Promise<boolean>;
 
-export type ShemaNCFunc<T> = (
+export type ShemaFunc<T> = (
   reading: ReadingShemaParam | HiddenCheckFunc,
   defaults?: T
 ) => MyFormShema<T>;
@@ -136,8 +136,7 @@ export interface MyFormField<T> {
   type: IValidatorType;
   ui: FieldUi;
   wrongTypeMessage?: string;
-  default?: never;
-  value?: boolean;
+  default?: any;
   rules?: IFormItemRule<T>[];
 }
 
@@ -162,19 +161,19 @@ interface LinkFieldItem {
 }
 
 export interface ShemaConstructor {
-  new (): BaseNcShema<IBaseDoc>;
+  new (): BaseFormShema<IBaseDoc>;
 }
 
 export interface IBaseDoc {
   _id?: string;
   _rev?: string;
   doc_type?: string;
-  payload?: { [key: string]: never };
+  payload?: { [key: string]: any };
 }
 
-export class BaseNcShema<T extends IBaseDoc> {
+export class BaseFormShema<T extends IBaseDoc> {
   public docInfo: ShemaDocInfo<T>;
-  public getNcShema: ShemaNCFunc<T>;
+  public getFormShema: ShemaFunc<T>;
   public canCreate?: CheckFunc;
   public canEdit?: CheckFunc;
   constructor() {
