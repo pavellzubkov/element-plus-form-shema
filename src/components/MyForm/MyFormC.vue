@@ -78,8 +78,6 @@
 </template>
 
 <script lang="ts">
-import SvgIconMy from "@/components/UICommon/Icons/SvgIcon/SvgIconMy.vue";
-
 import { onClickOutside } from "@vueuse/core";
 import { defineComponent, PropType, Ref, ref, shallowRef, watch } from "vue";
 import {
@@ -92,7 +90,6 @@ import { MyFormClass } from "@/components/MyForm/MyFormClass";
 
 export default defineComponent({
   name: "MyFormC",
-  components: { SvgIconMy },
   emits: ["checked"],
   props: {
     modelValue: {

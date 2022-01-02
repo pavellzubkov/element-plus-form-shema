@@ -1,3 +1,4 @@
+import { IDocOne } from "@/components/DocsShemas/docsTypes";
 import {
   BaseFormShema,
   HiddenCheckFunc,
@@ -6,7 +7,6 @@ import {
   ShemaDocInfo,
   ShemaFunc,
 } from "@/components/MyForm/MyFormTypes";
-import { IDocOne } from "@/components/DocsShemas/docsTypes";
 
 export class DocOneShema extends BaseFormShema<IDocOne> {
   docInfo: ShemaDocInfo<IDocOne> = {

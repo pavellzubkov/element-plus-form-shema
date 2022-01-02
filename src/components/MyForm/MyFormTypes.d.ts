@@ -82,7 +82,7 @@ interface IBaseRule {
   len?: number;
   min?: number;
   max?: number;
-  enum?: never[];
+  enum?: any[];
   whitespace?: boolean;
   transform?: IFormTransformFunc<string | number | Array | never>;
 }
@@ -105,11 +105,11 @@ export type IFormValidatorF = (
 ) => IFormNativeValidator;
 
 export interface IFieldsArrItem {
-  component: Component;
+  component: string;
   label: string;
   name: string;
   hidden: IFormVisF;
-  componentConfig?: never;
+  componentConfig?: any;
 }
 
 export interface IShemaField {
@@ -150,8 +150,8 @@ export interface FieldUi {
   widget?: IFormComponents;
   readonly?: boolean | string | HiddenCheckFunc;
   columns?: number;
-  widgetConfig?: never;
-  help?: never;
+  widgetConfig?: any;
+  help?: any;
   linkFields?: LinkFieldItem[];
 }
 

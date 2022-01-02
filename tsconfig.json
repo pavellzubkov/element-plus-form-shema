@@ -6,12 +6,15 @@
     "jsx": "preserve",
     "importHelpers": true,
     "moduleResolution": "node",
+    "experimentalDecorators": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
-    "strictNullChecks": false,
     "noImplicitAny": false,
-    "allowSyntheticDefaultImports": true,
+    "forceConsistentCasingInFileNames": true,
+    "useDefineForClassFields": true,
+    "strictNullChecks": false,
     "sourceMap": true,
+    "allowSyntheticDefaultImports": true,
     "baseUrl": ".",
     "types": [
       "webpack-env"
@@ -30,6 +33,7 @@
   },
   "include": [
     "src/**/*.ts",
+    "src/**/*.d.ts",
     "src/**/*.tsx",
     "src/**/*.vue",
     "tests/**/*.ts",

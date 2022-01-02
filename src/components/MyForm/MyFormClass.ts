@@ -11,14 +11,14 @@ import {
 export class MyFormClass {
   public calc = (
     shema: MyFormShema<IBaseDoc>,
-    formVal: Ref<{ [key: string]: never }>
+    formVal: Ref<{ [key: string]: any }>
   ): IFieldsArrItem[] => {
     const fields: IFieldsArrItem[] = [];
     const defVis = () => false;
     Object.keys(shema.properties).forEach((fieldName) => {
       const elt: IFieldsArrItem = {
         name: fieldName,
-        component: MyFormComps[shema.properties[fieldName].ui.widget],
+        component: shema.properties[fieldName].ui.widget,
         label: shema.properties[fieldName].ui.label || "",
         hidden: shema.properties[fieldName].ui.hidden || defVis,
         componentConfig: shema.properties[fieldName].ui.widgetConfig,

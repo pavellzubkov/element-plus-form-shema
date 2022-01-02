@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
 import Home from "../views/Home.vue";
 import { defineAsyncComponent } from "vue";
+import DocOneV from "@/views/DocOneV.vue";
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -17,6 +18,11 @@ const routes: Array<RouteRecordRaw> = [
     component: defineAsyncComponent(
       () => import(/* webpackChunkName: "about" */ "../views/About.vue")
     ),
+  },
+  {
+    path: "/docOne",
+    name: "DocOne",
+    component: DocOneV,
   },
 ];
 
