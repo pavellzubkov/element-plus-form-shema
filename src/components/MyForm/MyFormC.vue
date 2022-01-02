@@ -51,7 +51,7 @@
               :disabled="confvisible"
               content="Confirm"
             >
-              <el-button type="success" circle size="small" @click="checkForm"
+              <el-button type="success" round @click="checkForm"
                 >Confirm</el-button
               >
             </el-tooltip>
@@ -78,8 +78,16 @@
 </template>
 
 <script lang="ts">
-import { onClickOutside } from "@vueuse/core";
-import { defineComponent, PropType, Ref, ref, shallowRef, watch } from "vue";
+import { onClickOutside, Reactify } from "@vueuse/core";
+import {
+  defineComponent,
+  PropType,
+  reactive,
+  Ref,
+  ref,
+  shallowRef,
+  watch,
+} from "vue";
 import {
   IBaseDoc,
   IFieldsArrItem,
@@ -87,6 +95,7 @@ import {
   MyFormShema,
 } from "@/components/MyForm/MyFormTypes";
 import { MyFormClass } from "@/components/MyForm/MyFormClass";
+import type { ElForm } from "element-plus";
 
 export default defineComponent({
   name: "MyFormC",
@@ -106,7 +115,7 @@ export default defineComponent({
     },
   },
   setup(props, { emit }) {
-    const form = ref(null);
+    const form = ref<InstanceType<typeof ElForm>>();
     const confContent = ref(null);
     const formVal = ref(props.modelValue);
     const rules: Ref<IFormRules | undefined> = ref(undefined);
@@ -127,11 +136,11 @@ export default defineComponent({
       () => formVal.value,
       async () => {
         console.log("MyForm value changed");
-        try {
-          await form.value.validate();
-        } catch (e) {
-          console.log("checkForm check fail", e);
-        }
+        // try {
+        //   await form.value.validate();
+        // } catch (e) {
+        //   console.log("checkForm check fail", e);
+        // }
       },
       {
         deep: true,

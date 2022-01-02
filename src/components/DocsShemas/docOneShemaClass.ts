@@ -34,6 +34,10 @@ export class DocOneShemaClass extends BaseFormShema<IDocOne> {
           },
           rules: [
             {
+              required: true,
+              message: "Required",
+            },
+            {
               min: 5,
               message: "Min 5 symbols",
             },
@@ -72,11 +76,10 @@ export class DocOneShemaClass extends BaseFormShema<IDocOne> {
             label: "My Tags",
           },
           rules: [
-            {
-              min: 3,
-              max: 6,
-              message: "Min 3 Max6",
-            },
+            // {
+            //   max: 6,
+            //   message: "Max6",
+            // },
           ],
         },
       },

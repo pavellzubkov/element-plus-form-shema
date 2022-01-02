@@ -34,13 +34,13 @@
         class="m-2"
         placeholder="Select"
         size="large"
+        @change="selected"
       >
         <el-option
           v-for="item in options"
           :key="item"
           :label="item"
           :value="item"
-          @change="selected"
         >
         </el-option>
       </el-select>
@@ -83,6 +83,7 @@ export default defineComponent({
     };
 
     const selected = (val: string) => {
+      console.log("Custom field selected -", val);
       locList.value.push(val);
       emit("update:modelValue", locList.value);
       addDialIsVisible.value = false;

@@ -39,12 +39,7 @@ export class MyFormClass {
     Object.keys(shema.properties).forEach((fieldName) => {
       if (shema.properties[fieldName].rules) {
         const rules: IFormNativeRule[] = [];
-        rules.push({
-          type: shema.properties[fieldName].type,
-          message:
-            shema.properties[fieldName].wrongTypeMessage ||
-            `Field must be ${shema.properties[fieldName].type}`,
-        });
+
         shema.properties[fieldName].rules.forEach((rule) => {
           const r: IFormNativeRule = {};
           Object.assign(r, rule);
@@ -58,6 +53,12 @@ export class MyFormClass {
             r.transform = this.trimValue;
           }
           rules.push(r);
+        });
+        rules.push({
+          type: shema.properties[fieldName].type,
+          message:
+            shema.properties[fieldName].wrongTypeMessage ||
+            `Field must be ${shema.properties[fieldName].type}`,
         });
         outRules[fieldName] = rules;
       }
