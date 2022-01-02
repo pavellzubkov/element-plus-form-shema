@@ -37,9 +37,14 @@ export class MyFormClass {
   ): IFormRules => {
     const outRules: IFormRules = {};
     Object.keys(shema.properties).forEach((fieldName) => {
+      const rules: IFormNativeRule[] = [];
+      rules.push({
+        type: shema.properties[fieldName].type,
+        message:
+          shema.properties[fieldName].wrongTypeMessage ||
+          `Field must be ${shema.properties[fieldName].type}`,
+      });
       if (shema.properties[fieldName].rules) {
-        const rules: IFormNativeRule[] = [];
-
         shema.properties[fieldName].rules.forEach((rule) => {
           const r: IFormNativeRule = {};
           Object.assign(r, rule);
@@ -49,23 +54,26 @@ export class MyFormClass {
           if (rule.asyncValidator) {
             r.asyncValidator = rule.asyncValidator(formVal);
           }
-          if (rule.type === "string") {
+          if (shema.properties[fieldName].type === "string") {
             r.transform = this.trimValue;
           }
           rules.push(r);
         });
-        rules.push({
-          type: shema.properties[fieldName].type,
-          message:
-            shema.properties[fieldName].wrongTypeMessage ||
-            `Field must be ${shema.properties[fieldName].type}`,
-        });
-        outRules[fieldName] = rules;
       }
+      outRules[fieldName] = rules;
     });
     return outRules;
   };
 
-  private trimValue: IFormTransformFunc<string> = (value: string) =>
-    value.trim();
+  private trimValue: IFormTransformFunc<string> = (value: string) => {
+    const trimmed = value.trim();
+    console.log(
+      "trimme - val -",
+      JSON.stringify(value),
+      ". trimmed -",
+      JSON.stringify(trimmed),
+      "."
+    );
+    return trimmed;
+  };
 }

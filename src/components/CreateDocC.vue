@@ -1,12 +1,15 @@
 <template>
   <div style="width: 100%; alignment: center">
-    <div class="bordered-item">
+    <div class="form-block">
       <MyFormC
         :shema="shemaObj"
         v-model="docDoc.payload"
         editable="create"
         @checked="formIsOk"
       ></MyFormC>
+    </div>
+    <div class="form-block">
+      {{ docDoc.payload }}
     </div>
   </div>
 </template>
@@ -55,11 +58,11 @@ export default defineComponent({
 </script>
 
 <style scoped>
-.bordered-item {
+.form-block {
   width: 80%;
-  height: 80vh;
+  height: 50vh;
   padding: 7px;
-  overflow: paged-y-controls;
+  overflow: auto;
   text-align: left;
   margin: auto;
   border: 2px ridge #b3b3b3;

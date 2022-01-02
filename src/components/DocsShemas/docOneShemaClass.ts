@@ -42,6 +42,7 @@ export class DocOneShemaClass extends BaseFormShema<IDocOne> {
               min: 5,
               message: "Min 5 symbols",
             },
+            { whitespace: true },
           ],
         },
         myUrl: {
