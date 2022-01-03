@@ -9,7 +9,7 @@ Modify, refactor for your needings.
 
 Animate css library has been used  for field transitions.
 
-[CodeSandbox Demo](https://codesandbox.io/s/condescending-cori-2wg7x?file=/src/main.ts).
+[CodeSandbox Demo](https://codesandbox.io/s/wizardly-lovelace-1sqng?file=/README.md).
 
 ## Project setup
 ```
