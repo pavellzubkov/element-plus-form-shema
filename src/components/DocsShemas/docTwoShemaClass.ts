@@ -22,7 +22,7 @@ export class DocTwoShemaClass extends BaseFormShema<IDocTwo> {
   };
   private NumberRegexp = /^[0-9]+[,|.]?\d*$/;
 
-  private checkExistingAnalogsGroup = (
+  private checkAsyncValue = (
     delayMs: number,
     errMsg: string
   ): IFormAsyncValidator<IDocTwo["payload"]> => {
@@ -86,10 +86,13 @@ export class DocTwoShemaClass extends BaseFormShema<IDocTwo> {
             { required: true },
             {
               pattern: this.NumberRegexp,
-              message: "Only numbers letters",
+              message: "Only numbers symbols",
             },
             {
-              asyncValidator: this.checkExistingAnalogsGroup(2000, ""),
+              asyncValidator: this.checkAsyncValue(
+                2000,
+                "Async check. Must be 567"
+              ),
             },
           ],
         },
