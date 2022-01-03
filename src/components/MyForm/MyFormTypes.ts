@@ -23,7 +23,6 @@ export type IFormSyncValidator = (formVal: Ref<any>) => IFormNativeValidator;
 export type IFormAsyncValidator<T> = (
   formVal: Ref<T>
 ) => IFormNativeAsyncValidator;
-export type IFormTransformFunc<T> = (v: T) => T;
 
 export type ShemaFieldUiFunc = (
   label: string,
@@ -47,13 +46,7 @@ export interface ShemaDocInfo<T extends IBaseDoc> {
   name?: string;
   db_name: string;
   doc_type: T["doc_type"]; // balance base layout
-  nanoLength: number;
-  attWithPreview?: boolean;
-  idOnly?: boolean;
-  idOnlyType?: boolean;
-  idFromField?: boolean;
-  idNameField?: string;
-  canEdit?: boolean;
+  discription: string;
 }
 
 export interface MyFormShema<T extends IBaseDoc> {
@@ -84,7 +77,6 @@ interface IBaseRule {
   max?: number;
   enum?: any[];
   whitespace?: boolean;
-  transform?: IFormTransformFunc<any>;
 }
 
 export interface IFormNativeRule extends IBaseRule {
@@ -176,6 +168,18 @@ export class BaseFormShema<T extends IBaseDoc> {
   public getFormShema: ShemaFunc<T>;
   public canCreate?: CheckFunc;
   public canEdit?: CheckFunc;
+  public trimStringVal = (ob: Record<string, any>): Record<string, any> => {
+    const keys = Object.keys(ob);
+    const out: Record<string, any> = {};
+    keys.forEach((key) => {
+      if (typeof ob[key] === "string") {
+        out[key] = ob[key].trim();
+      } else {
+        out[key] = ob[key];
+      }
+    });
+    return out;
+  };
   constructor() {
     this.canCreate = async () => true;
     this.canEdit = async () => true;

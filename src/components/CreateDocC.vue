@@ -1,5 +1,6 @@
 <template>
   <div style="width: 100%; alignment: center">
+    {{ discriprion }}
     <div class="form-block">
       <MyFormC
         :shema="shemaObj"
@@ -8,12 +9,9 @@
         @checked="formIsOk"
       ></MyFormC>
     </div>
-    <span v-if="docDoc.payload.text1">
-      {{ JSON.stringify(docDoc.payload.text1) }}
-    </span>
 
-    <div class="form-block">
-      {{ docDoc.payload }}
+    <div style="margin-top: 8px">
+      <label>{{ docDoc.payload }}</label>
     </div>
   </div>
 </template>
@@ -44,8 +42,10 @@ export default defineComponent({
     const shemaInst = new S() as BaseFormShema<IBaseDoc>;
     const shemaObj: Ref<MyFormShema<IBaseDoc>> = ref(undefined);
     const docDoc: Ref<IBaseDoc> = ref({ payload: {} });
+    const discriprion = ref(shemaInst.docInfo.discription);
     shemaObj.value = shemaInst.getFormShema("create");
-    const formIsOk = (doc) => {
+    const formIsOk = () => {
+      docDoc.value.payload = shemaInst.trimStringVal(docDoc.value.payload);
       ElNotification({
         title: "Success",
         message: "Doc is ok.Go save.",
@@ -55,6 +55,7 @@ export default defineComponent({
     return {
       shemaObj,
       docDoc,
+      discriprion,
       formIsOk,
     };
   },

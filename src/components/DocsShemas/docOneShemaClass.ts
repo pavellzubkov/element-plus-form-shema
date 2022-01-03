@@ -12,9 +12,10 @@ import { MyFormValidators } from "@/components/MyForm/MyFormValidators";
 export class DocOneShemaClass extends BaseFormShema<IDocOne> {
   docInfo: ShemaDocInfo<IDocOne> = {
     db_name: "myBase",
-    nanoLength: 6,
-    doc_type: "model",
-    name: "Модель",
+    doc_type: "doc_one",
+    name: "DocOne",
+    discription:
+      "Example with sync validator. My Url fild visibility depends on My text value length",
   };
   private NumberRegexp = /^[0-9]+[,|.]?\d*$/;
   getFormShema: ShemaFunc<IDocOne> = (
@@ -85,7 +86,7 @@ export class DocOneShemaClass extends BaseFormShema<IDocOne> {
             {
               validator: MyFormValidators.lengthRange(
                 "range",
-                "From 2 to 6",
+                "Array length 2 to 6",
                 2,
                 6
               ),

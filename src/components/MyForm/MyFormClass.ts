@@ -5,7 +5,6 @@ import {
   IFieldsArrItem,
   IFormNativeRule,
   IFormRules,
-  IFormTransformFunc,
   MyFormShema,
 } from "@/components/MyForm/MyFormTypes";
 
@@ -54,26 +53,12 @@ export class MyFormClass {
           if (rule.asyncValidator) {
             r.asyncValidator = rule.asyncValidator(formVal);
           }
-          if (shema.properties[fieldName].type === "string") {
-            r.transform = this.trimValue;
-          }
+
           rules.push(r);
         });
       }
       outRules[fieldName] = rules;
     });
     return outRules;
-  };
-
-  private trimValue: IFormTransformFunc<string> = (value: string) => {
-    const trimmed = value.trim();
-    console.log(
-      "trimme - val -",
-      JSON.stringify(value),
-      ". trimmed -",
-      JSON.stringify(trimmed),
-      "."
-    );
-    return trimmed;
   };
 }
