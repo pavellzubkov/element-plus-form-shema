@@ -2,12 +2,15 @@ import { IDocTwo } from "@/components/DocsShemas/docsTypes";
 import {
   BaseFormShema,
   HiddenCheckFunc,
+  IFormAsyncValidator,
+  IFormNativeAsyncValidator,
   MyFormShema,
   ReadingShemaParam,
   ShemaDocInfo,
   ShemaFunc,
 } from "@/components/MyForm/MyFormTypes";
 import { MyFormValidators } from "@/components/MyForm/MyFormValidators";
+import { promiseTimeout } from "@vueuse/core";
 
 export class DocTwoShemaClass extends BaseFormShema<IDocTwo> {
   docInfo: ShemaDocInfo<IDocTwo> = {
@@ -18,6 +21,21 @@ export class DocTwoShemaClass extends BaseFormShema<IDocTwo> {
       "Example with sync validator. My Url fild visibility depends on My text value length",
   };
   private NumberRegexp = /^[0-9]+[,|.]?\d*$/;
+
+  private checkExistingAnalogsGroup = (
+    delayMs: number,
+    errMsg: string
+  ): IFormAsyncValidator<IDocTwo["payload"]> => {
+    return (formVal): IFormNativeAsyncValidator => {
+      const f: IFormNativeAsyncValidator = async (rule: any, value: any) => {
+        await promiseTimeout(delayMs);
+        if (value === "567") return;
+        throw new Error(errMsg);
+      };
+      return f;
+    };
+  };
+
   getFormShema: ShemaFunc<IDocTwo> = (
     reading: ReadingShemaParam | HiddenCheckFunc,
     defaults = { payload: {} }
@@ -65,9 +83,13 @@ export class DocTwoShemaClass extends BaseFormShema<IDocTwo> {
             hidden: () => false,
           },
           rules: [
+            { required: true },
             {
               pattern: this.NumberRegexp,
               message: "Only numbers letters",
+            },
+            {
+              asyncValidator: this.checkExistingAnalogsGroup(2000, ""),
             },
           ],
         },
