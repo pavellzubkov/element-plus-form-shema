@@ -5,7 +5,7 @@ Only for frontend. For usage copy MyMorm folder to your project. Use MyFormC com
 Register custom components in MyFormComps.ts. Example of custom components in CustomFields folder.
 Form shemas you can find in DocsShemas folder. For managing docs (for save for example) using CreateDocC component.
 Shemas base class contains method for trim string field (example before save).
-Modify, refactor for your needings. 
+Modify, refactor for your needings.
 
 Animate css library has been used  for field transitions.
 
