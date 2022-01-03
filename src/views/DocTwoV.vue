@@ -4,15 +4,15 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import { DocOneShemaClass } from "@/components/DocsShemas/docOneShemaClass";
 import CreateDocC from "@/components/CreateDocC.vue";
+import { DocTwoShemaClass } from "@/components/DocsShemas/docTwoShemaClass";
 
 export default defineComponent({
   name: "DocTwoV",
   components: { CreateDocC },
   setup() {
     return {
-      DocOneShema: DocOneShemaClass,
+      DocOneShema: DocTwoShemaClass,
     };
   },
 });

@@ -8,3 +8,13 @@ export interface IDocOne extends IBaseDoc {
     custom?: string[];
   };
 }
+
+export interface IDocTwo extends IBaseDoc {
+  payload: {
+    textNew?: string;
+    myUrl?: string;
+    myRegexp?: string;
+    custom?: string[];
+    custom1?: string[];
+  };
+}
