@@ -2,12 +2,13 @@ import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
 import Home from "../views/Home.vue";
 import { defineAsyncComponent } from "vue";
 import DocOneV from "@/views/DocOneV.vue";
+import DocTwoV from "@/views/DocTwoV.vue";
 
 const routes: Array<RouteRecordRaw> = [
   {
     path: "/",
-    name: "Home",
-    component: Home,
+    name: "DocOne",
+    component: DocOneV,
   },
   {
     path: "/about",
@@ -18,10 +19,11 @@ const routes: Array<RouteRecordRaw> = [
     component: () =>
       import(/* webpackChunkName: "about" */ "../views/About.vue"),
   },
+
   {
-    path: "/docOne",
-    name: "DocOne",
-    component: DocOneV,
+    path: "/docTwo",
+    name: "DocTwo",
+    component: DocTwoV,
   },
 ];
 
