@@ -1,5 +1,7 @@
 # Element Plus Form Shema Example
 
+[![Build Status](https://app.travis-ci.com/pavellzubkov/element-plus-form-shema.svg?branch=main)](https://app.travis-ci.com/pavellzubkov/element-plus-form-shema)
+
 Simple example. Sync and async validation, composition api, typescript.
 Only for frontend. For usage copy MyMorm folder to your project. Use MyFormC component.
 Register custom components in MyFormComps.ts. Example of custom components in CustomFields folder.
@@ -8,6 +10,8 @@ Shemas base class contains method for trim string field (example before save).
 Modify, refactor for your needings.
 
 Animate css library has been used  for field transitions.
+
+[Github Pages Demo](https://pavellzubkov.github.io/element-plus-form-shema/).
 
 [CodeSandbox Demo](https://codesandbox.io/s/wizardly-lovelace-1sqng?file=/README.md).
 
