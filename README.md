@@ -3,6 +3,13 @@
 Simple example. Sync and async validation, composition api, typescript.
 Only for frontend. For usage copy MyMorm folder to your project. Use MyFormC component.
 Register custom components in MyFormComps.ts. Example of custom components in CustomFields folder.
+Form shemas you can find in DocsShemas folder. For managing docs (for save for example) using CreateDocC component.
+Shemas base class contains method for trim string field (example before save).
+Modify, refactor for your needings.
+
+Animate css library has been used  for field transitions.
+
+[CodeSandbox Demo](https://codesandbox.io/s/condescending-cori-2wg7x?file=/src/main.ts).
 
 ## Project setup
 ```
@@ -24,5 +31,11 @@ yarn build
 yarn lint
 ```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+### Links
+See [Vue 3](https://v3.vuejs.org/).
+
+See [Element Plus](https://element-plus.org/en-US/).
+
+See [async-validator](https://github.com/yiminghe/async-validator).
+
+See [Animate css](https://animate.style/).

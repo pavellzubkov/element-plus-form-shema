@@ -18,7 +18,7 @@ export class DocTwoShemaClass extends BaseFormShema<IDocTwo> {
     doc_type: "doc_one",
     name: "DocOne",
     discription:
-      "Example with sync validator. My Url fild visibility depends on My text value length",
+      "Example with async validator. MyRegexp fild async checking for 567 value.",
   };
   private NumberRegexp = /^[0-9]+[,|.]?\d*$/;
 
