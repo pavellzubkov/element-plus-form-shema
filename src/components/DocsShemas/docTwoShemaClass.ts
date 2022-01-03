@@ -53,7 +53,7 @@ export class DocTwoShemaClass extends BaseFormShema<IDocTwo> {
           ui: {
             widget: "input",
             label: "My Url",
-            hidden: (form) => form.text1.length < 5,
+            hidden: (form) => form.textNew.length < 4,
           },
         },
         myRegexp: {
@@ -95,10 +95,11 @@ export class DocTwoShemaClass extends BaseFormShema<IDocTwo> {
         },
         custom1: {
           type: "array",
-          default: defaults.payload.custom || [],
+          default: defaults.payload.custom1 || [],
           ui: {
             widget: "customTwo",
             label: "My Second Tags",
+            hidden: (form) => form.custom.length < 2,
           },
           rules: [
             {
