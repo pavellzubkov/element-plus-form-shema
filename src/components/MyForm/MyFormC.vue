@@ -135,20 +135,20 @@ export default defineComponent({
       confvisible.value = false;
     });
 
-    watch(
-      () => formVal.value,
-      async () => {
-        console.log("MyForm value changed");
-        try {
-          await form.value.validate();
-        } catch (e) {
-          console.log("checkForm check fail", e);
-        }
-      },
-      {
-        deep: true,
-      }
-    );
+    // watch(
+    //   () => formVal.value,
+    //   async () => {
+    //     console.log("MyForm value changed");
+    //     try {
+    //       await form.value.validate();
+    //     } catch (e) {
+    //       console.log("checkForm check fail", e);
+    //     }
+    //   },
+    //   {
+    //     deep: true,
+    //   }
+    // );
     const checkForm = async () => {
       try {
         const res = await form.value.validate();
