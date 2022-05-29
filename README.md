@@ -3,7 +3,7 @@
 [![Build Status](https://app.travis-ci.com/pavellzubkov/element-plus-form-shema.svg?branch=main)](https://app.travis-ci.com/pavellzubkov/element-plus-form-shema)
 
 Simple example. Sync and async validation, composition api, typescript.
-Only for frontend. For usage copy MyMorm folder to your project. Use MyFormC component.
+Only for frontend. For usage copy MyForm (src/components/MyForm) folder to your project. Use MyFormC component.
 Register custom components in MyFormComps.ts. Example of custom components in CustomFields folder.
 Form shemas you can find in DocsShemas folder. For managing docs (for save for example) using CreateDocC component.
 Shemas base class contains method for trim string field (example before save).
