@@ -96,8 +96,8 @@ import {
   IFieldsArrItem,
   IFormRules,
   MyFormShema,
-} from "@/components/MyForm/MyFormTypes";
-import { MyFormClass } from "@/components/MyForm/MyFormClass";
+} from "./MyFormTypes";
+import { MyFormClass } from "./MyFormClass";
 import type { ElForm } from "element-plus";
 
 export default defineComponent({

@@ -1,12 +1,12 @@
 import { Ref } from "vue";
-import { MyFormComps } from "@/components/MyForm/MyFormComps";
+import { MyFormComps } from "./MyFormComps";
 import {
   IBaseDoc,
   IFieldsArrItem,
   IFormNativeRule,
   IFormRules,
   MyFormShema,
-} from "@/components/MyForm/MyFormTypes";
+} from "./MyFormTypes";
 
 export class MyFormClass {
   public calc = (

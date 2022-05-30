@@ -1,5 +1,5 @@
 import { Component, Ref } from "vue";
-import { MyFormComps } from "@/components/MyForm/MyFormComps";
+import { MyFormComps } from "./MyFormComps";
 
 export type ReadingShemaParam = "read" | "create" | "update";
 

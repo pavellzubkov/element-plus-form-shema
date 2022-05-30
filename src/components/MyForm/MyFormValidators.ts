@@ -2,7 +2,7 @@ import {
   IFormNativeValidator,
   IFormSyncValidator,
   IFormValidatorF,
-} from "@/components/MyForm/MyFormTypes";
+} from "./MyFormTypes";
 import { Ref } from "vue";
 
 class MyFormValidatorsClass<T> {
